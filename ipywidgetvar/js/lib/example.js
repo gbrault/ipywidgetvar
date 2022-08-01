@@ -25,9 +25,10 @@ var IpywidgetVarModel = widgets.DOMWidgetModel.extend({
         _view_name : 'IpywidgetVarView',
         _model_module : 'ipywidgetvar',
         _view_module : 'ipywidgetvar',
-        _model_module_version : '0.1.0',
-        _view_module_version : '0.1.0',
-        value : 'IpywidgetVar World!'
+        _model_module_version : '0.1.1',
+        _view_module_version : '0.1.1',
+        value : 'IpywidgetVar!',
+        id: 'id1'
     })
 });
 
@@ -37,14 +38,22 @@ var IpywidgetVarView = widgets.DOMWidgetView.extend({
     // Defines how the widget gets rendered into the DOM
     render: function() {
         this.value_changed();
+        this_id_changed();
 
         // Observe changes in the value traitlet in Python, and define
         // a custom callback.
         this.model.on('change:value', this.value_changed, this);
+        this.model.on('change:id', this.id_changed, this);
     },
 
     value_changed: function() {
+        console.log("set value");
         this.el.textContent = this.model.get('value');
+    },
+
+    id_changed: function(){
+        console.log("set id");
+        this.el.id = this.model.get('id');
     }
 });
 

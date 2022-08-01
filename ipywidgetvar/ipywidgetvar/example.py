@@ -28,4 +28,5 @@ class IpywidgetVar(widgets.DOMWidget):
     # Widget properties are defined as traitlets. Any property tagged with `sync=True`
     # is automatically synced to the frontend *any* time it changes in Python.
     # It is synced back to Python from the frontend *any* time the model is touched.
-    value = Unicode('IpywidgetVar World!').tag(sync=True)
+    value = Unicode('IpywidgetVar--').tag(sync=True)
+    id = Unicode('id1').tag(sync=True)
