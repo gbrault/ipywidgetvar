@@ -20,9 +20,9 @@ class IpywidgetVar(widgets.DOMWidget):
     _model_module = Unicode('ipywidgetvar').tag(sync=True)
 
     # Version of the front-end module containing widget view
-    _view_module_version = Unicode('^0.1.0').tag(sync=True)
+    _view_module_version = Unicode('^0.1.9').tag(sync=True)
     # Version of the front-end module containing widget model
-    _model_module_version = Unicode('^0.1.0').tag(sync=True)
+    _model_module_version = Unicode('^0.1.9').tag(sync=True)
 
     # Widget specific property.
     # Widget properties are defined as traitlets. Any property tagged with `sync=True`
@@ -30,3 +30,5 @@ class IpywidgetVar(widgets.DOMWidget):
     # It is synced back to Python from the frontend *any* time the model is touched.
     value = Unicode('IpywidgetVar--').tag(sync=True)
     id = Unicode('id1').tag(sync=True)
+    tojs = Unicode('tojsvalue').tag(sync=True)
+    topython = Unicode('topythonvalue').tag(sync=True)
