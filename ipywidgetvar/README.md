@@ -1,7 +1,7 @@
 ipywidgetvar
 ===============================
 
-vars between python and js
+An ipywidget object to exchange data between python and js
 
 Installation
 ------------
