@@ -25,8 +25,8 @@ var IpywidgetVarModel = widgets.DOMWidgetModel.extend({
         _view_name : 'IpywidgetVarView',
         _model_module : 'ipywidgetvar',
         _view_module : 'ipywidgetvar',
-        _model_module_version : '0.1.11',
-        _view_module_version : '0.1.11',
+        _model_module_version : '0.1.12',
+        _view_module_version : '0.1.12',
         value : 'IpywidgetVar!',
         id: 'id1',
         tojs: 'from python to js',
@@ -89,18 +89,16 @@ var IpywidgetVarView = widgets.DOMWidgetView.extend({
         // just register a callback with
         // var myvar = document.querySelector("#id")
         // myvar.tojs_callback(function(){...})
-        var todelete=[];
         var i;
+        var tojs_callback_List_copy;
+        tojs_callback_List_copy = []
         // if callback return false, it has to be deleted
         for(i=0; i<this.el.tojs_callback_List.length; i++){
-            if (!this.el.tojs_callback_List[i](JSON.parse(this.model.get('tojs')))){
-                todelete.push(i);
+            if (this.el.tojs_callback_List[i](JSON.parse(this.model.get('tojs')))){
+                tojs_callback_List_copy.push(i);
             }
         }
-        // deleting the callback items in todelete
-        for(i=0; i<todelete.length;i++){
-            delete this.el.tojs_callback_List[todelete[i]];
-        }
+        this.el.tojs_callback_List = Array.from(tojs_callback_List_copy);
     },
     topython_changed: function(){
         // var myvar = document.querySelector("#id")
