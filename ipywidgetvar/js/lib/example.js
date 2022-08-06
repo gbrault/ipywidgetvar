@@ -89,8 +89,16 @@ var IpywidgetVarView = widgets.DOMWidgetView.extend({
         // just register a callback with
         // var myvar = document.querySelector("#id")
         // myvar.tojs_callback(function(){...})
+        var todelete=[];
+        // if callback return false, it has to be deleted
         for(var i =0; i<this.el.tojs_callback_List.length; i++){
-            this.el.tojs_callback_List[i](JSON.parse(this.model.get('tojs')))
+            if (!this.el.tojs_callback_List[i](JSON.parse(this.model.get('tojs')))){
+                todelete.push(i);
+            }
+        }
+        // deleting the callback items in todelete
+        for(i=0; i<todelete.length;i++){
+            delete this.el.tojs_callback_List[todelete[i]];
         }
     },
     topython_changed: function(){
