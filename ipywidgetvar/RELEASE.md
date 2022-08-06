@@ -22,7 +22,7 @@ git push
 
 Update `js/package.json` with new npm package version
 
-# clean out the `dist` and `node_modules` directories in js subdirectory
+# clean out the `dist` and `node_modules` directories in `js` subdirectory
 `git clean -fdx`
 `npm install`
 `npm publish`
