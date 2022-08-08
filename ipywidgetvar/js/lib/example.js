@@ -25,8 +25,8 @@ var IpywidgetVarModel = widgets.DOMWidgetModel.extend({
         _view_name : 'IpywidgetVarView',
         _model_module : 'ipywidgetvar',
         _view_module : 'ipywidgetvar',
-        _model_module_version : '0.1.13',
-        _view_module_version : '0.1.13',
+        _model_module_version : '0.1.14',
+        _view_module_version : '0.1.14',
         value : 'IpywidgetVar!',
         id: 'id1',
         tojs: 'from python to js',
@@ -66,7 +66,7 @@ var IpywidgetVarView = widgets.DOMWidgetView.extend({
     value_changed: function() {
         console.log("set value");
         // can be used as a communication status
-        this.el.textContent = this.model.get('value');
+        this.el.innerHTML = this.model.get('value');
     },
 
     id_changed: function(){

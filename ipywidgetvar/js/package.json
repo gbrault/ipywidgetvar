@@ -1,6 +1,6 @@
 {
   "name": "ipywidgetvar",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "vars between python and js",
   "author": "Gilbert Brault",
   "main": "lib/index.js",
